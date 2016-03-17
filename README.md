@@ -23,7 +23,7 @@ Call as API in your server
 	- image from internet : curl -X POST 'http://localhost:8000/face_detection/detect/' -d 'url=http://www.pyimagesearch.com/wp-content/uploads/2015/05/obama.jpg' ; echo ""
 
 
-Caffe model ZOO:
+# Caffe model ZOO:
 	- https://github.com/BVLC/caffe/wiki/Model-Zoo
 
 #Refrences:
