@@ -1,7 +1,6 @@
 # Object detect based on Caffe and Opencv 
 =========================================
-	
-Call as API in your server
+Describe your images by calling an API (in your server)
 
 # Requirement :
 	- pip install -r requirement.txt (python lib needed)
