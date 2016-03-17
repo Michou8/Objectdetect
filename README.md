@@ -6,7 +6,14 @@ Call as API in your server
 # Requirement :
 	- pip install -r requirement.txt (python lib needed)
 	- Don't forget to download caffe model and cascade model
-		
+	[
+		put caffemodel and deploy file into (you can also put mean file on it or put your own model):
+			cv_api/face_detector/bvlc_model/bvlc_alexnet/
+		        cv_api/face_detector/bvlc_model/bvlc_googlenet/ <-- NOT USE
+		        cv_api/face_detector/bvlc_model/bvlc_reference_caffenet/ <-- NOT USE
+		        cv_api/face_detector/bvlc_model/bvlc_reference_rcnn_ilsvrc13/ <-- NOT USE
+		        cv_api/face_detector/bvlc_model/finetune_flickr_style/ <-- NOT USE
+	]		
 # Run the server :
 	cd cv_api
 	python manger.py runserver
@@ -22,3 +29,6 @@ Caffe model ZOO:
 #Refrences:
 	- Face detection api : http://www.pyimagesearch.com/2015/05/11/creating-a-face-detection-api-with-python-and-opencv-in-just-5-minutes/
 	- Caffe : http://caffe.berkeleyvision.org/
+#TO-DO:
+	- Data base for recgnition 
+	- Increase the accuracy of prediction by trained more the model
