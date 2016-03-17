@@ -6,7 +6,8 @@ import urllib
 import json
 import cv2
 import os
- 
+import facedetection 
+import objectdetection
 # define the path to the face detector
 FACE_DETECTOR_PATH = "{base_path}/cascades/haarcascade_frontalface_default.xml".format(
 	base_path=os.path.abspath(os.path.dirname(__file__)))
@@ -38,14 +39,19 @@ def detect(request):
  
 		# convert the image to grayscale, load the face cascade detector,
 		# and detect faces in the image
+		image_ = image
 		image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-		detector = cv2.CascadeClassifier(FACE_DETECTOR_PATH)
-		rects = detector.detectMultiScale(image, scaleFactor=1.1, minNeighbors=5,
-			minSize=(30, 30), flags=cv2.cv.CV_HAAR_SCALE_IMAGE)
+		rects = facedetection.face_detector(image)
+		#raw_input()
+		#detector = cv2.CascadeClassifier(FACE_DETECTOR_PATH)
+		#rects = detector.detectMultiScale(image, scaleFactor=1.1, minNeighbors=5,
+		#	minSize=(30, 30), flags=cv2.cv.CV_HAAR_SCALE_IMAGE)
  
 		# construct a list of bounding boxes from the detection
 		rects = [(int(x), int(y), int(x + w), int(y + h)) for (x, y, w, h) in rects]
- 
+ 		
+		# construct a list of score for object detection
+		object = objectdetection.alex(image_)
 		# update the data dictionary with the faces detected
 		data.update({"num_faces": len(rects), "faces": rects, "success": True})
  
