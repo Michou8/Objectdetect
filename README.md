@@ -4,8 +4,9 @@
 Call as API in your server
 
 # Requirement :
-	pip install -r requirement.txt
-	
+	- pip install -r requirement.txt (python lib needed)
+	- Don't forget to download caffe model and cascade model
+		
 # Run the server :
 	cd cv_api
 	python manger.py runserver
